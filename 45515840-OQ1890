@@ -1,4 +1,5 @@
 Question 1
+a)
 -Step 1: Set location of the pem file and connect to AWS using ssh
 $ cd "C:\Users\PC\Desktop\semester 1\890"
 $ ssh -i 45515840.pem ubuntu@ec2-52-63-147-126.ap-southeast-2.compute.amazonaws.com
@@ -45,6 +46,20 @@ Saving to: ‘chapter-10-shell-programming--triplet-stop.sh.2’
 chapter-10-shell-pr 100%[===================>]     236  --.-KB/s    in 0s
 
 2019-04-04 08:48:29 (12.1 MB/s) - ‘chapter-10-shell-programming--triplet-stop.sh.2’ saved [236/236]
+b)
+ubuntu@ip-172-31-27-190:~$ #!/bin/bash
+ubuntu@ip-172-31-27-190:~$ # save as triplet-stop.sh
+ubuntu@ip-172-31-27-190:~$ # splits a sequence into triplets
+ubuntu@ip-172-31-27-190:~$ x=0
+ubuntu@ip-172-31-27-190:~$ while [ -n "${1:$x:3}" ]; do
+>  seq=$seq${1:$x:3}" "
+>  x=$(expr $x + 3)
+>  if [ ${1:$x:3} == taa ] && [ $x -ge 6 ]; then
+>   break
+>  fi
+> done
+ubuntu@ip-172-31-27-190:~$ echo "$seq" 
+
 Question 2
 a)*Step 1: Download file tutes.txt from ilearn
 *Step 2: Use Filezilla to connect AWS
