@@ -1,0 +1,70 @@
+Question 1
+-Step 1: Set location of the pem file and connect to AWS using ssh
+$ cd "C:\Users\PC\Desktop\semester 1\890"
+$ ssh -i 45515840.pem ubuntu@ec2-52-63-147-126.ap-southeast-2.compute.amazonaws.com
+-Result
+Welcome to Ubuntu 18.04.2 LTS (GNU/Linux 4.15.0-1032-aws x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Thu Apr  4 07:51:30 UTC 2019
+
+  System load:  0.0               Processes:           89
+  Usage of /:   25.1% of 7.69GB   Users logged in:     0
+  Memory usage: 23%               IP address for eth0: 172.31.27.190
+  Swap usage:   0%
+
+
+  Get cloud support with Ubuntu Advantage Cloud Guest:
+    http://www.ubuntu.com/business/services/cloud
+
+ * Canonical Livepatch is available for installation.
+   - Reduce system reboots and improve kernel security. Activate at:
+     https://ubuntu.com/livepatch
+
+38 packages can be updated.
+0 updates are security updates.
+
+
+*** System restart required ***
+Last login: Thu Apr  4 06:25:59 2019 from 137.111.13.126
+To run a command as administrator (user "root"), use "sudo <command>".
+See "man sudo_root" for details.
+- Step 2: Use wget to download W¨unschiers’ script triplet-stop.sh (p. 142) to your AWS account.
+ubuntu@ip-172-31-27-190:~$ wget "https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--triplet-stop.sh"
+-Result
+--2019-04-04 08:48:28--  https://www.staff.hs-mittweida.de/~wuenschi/data/media/compbiolbook/chapter-10-shell-programming--triplet-stop.sh
+Resolving www.staff.hs-mittweida.de (www.staff.hs-mittweida.de)... 141.55.192.74
+Connecting to www.staff.hs-mittweida.de (www.staff.hs-mittweida.de)|141.55.192.74|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 236 [text/x-sh]
+Saving to: ‘chapter-10-shell-programming--triplet-stop.sh.2’
+
+chapter-10-shell-pr 100%[===================>]     236  --.-KB/s    in 0s
+
+2019-04-04 08:48:29 (12.1 MB/s) - ‘chapter-10-shell-programming--triplet-stop.sh.2’ saved [236/236]
+Question 2
+a)*Step 1: Download file tutes.txt from ilearn
+*Step 2: Use Filezilla to connect AWS
+*Step 3: Choose tutes.txt from local site, upload and get the result 
+b)ubuntu@ip-172-31-27-190:~$ sed -n /WED/p tutes.txt
+[Tutorial_1|WED|10:00AM|C10]
+[Tutorial_1|WED|05:00PM|C15]
+[Tutorial_1|WED|04:00PM|C14]
+[Tutorial_1|WED|10:00AM|C09]
+[Tutorial_1|WED|04:00PM|C13]
+
+Question 3
+a) egrep "ˆ[ˆ ]+ [ˆ ]+ [ˆ ]+$ " file.txt
+Example: egrep "ˆ[ˆ ]+ [ˆ ]+ [ˆ ]+$ " tutes.txt
+b) egrep -e "-[0-9]+ " file.txt 
+Example: egrep -e "-[0-9]+ " tutes.txt 
+c) egrep " -?([0-9]+\.?[0-9] ∗ |[0-9] ∗ \.[0-9]+) " file.txt 
+Example: egrep " -?([0-9]+\.?[0-9] ∗ |[0-9] ∗ \.[0-9]+) " tutes.txt 
+d) egrep ‘ hydrogenase’ file.txt
+Example: egrep ‘ hydrogenase’ tutes.txt
+
+
+
